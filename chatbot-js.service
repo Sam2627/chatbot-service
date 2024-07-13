@@ -1,0 +1,13 @@
+[Unit]
+Description= Service run JS-BE
+After=network.target
+
+[Service]
+Environment=PORT=4500
+Type=simple
+User=quyen
+ExecStart=/usr/bin/node chatbot/chatbot-be/app.js
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

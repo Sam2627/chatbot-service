@@ -1,0 +1,13 @@
+[Unit]
+Description= Service run PY-BE
+After=network.target
+
+[Service]
+Environment=PORT=4500
+Type=simple
+User=quyen
+ExecStart=/chatbot/pyenv/bin/activate uvicorn chatbot/chatbot-be/main:app --reload --port 5000
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
